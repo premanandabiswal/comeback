@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact us</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<style>
+* {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: #f8f6f6;
+      color: #1f2937;
+      font-family: system-ui, sans-serif;
+      background-image: url('/image/contact-background.svg');
+      background-size: cover;
+    }
+
+    main {
+      width: min(100%, 480px);
+      padding: 32px;
+      border-radius: 12px;
+      background: #5f5d5d;
+      box-shadow: 0 10px 30px rgb(0 0 0 / 8%);
+    }
+
+    h1 {
+      margin: 0 0 8px;
+    }
+
+    p {
+      margin: 0 0 24px;
+      color: #6b7280;
+    }
+
+    label {
+      display: block;
+      margin: 16px 0 6px;
+      font-weight: 600;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 11px 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 12px;
+      border: 0;
+      border-radius: 6px;
+      background: #2563eb;
+      color: #fff;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+</style>
+<body>
+  <main>
+    <img class="contact-image" src="/image/contact-illustration.svg" alt="An open envelope with a message">
+    <h1>Contact us</h1>
+    <p>Have a question? Send us a message.</p>
+    <% if (typeof feedback !== 'undefined') { %>
+      <p class="form-feedback <%= feedbackType %>" role="<%= feedbackType === 'error' ? 'alert' : 'status' %>"><%= feedback %></p>
+    <% } %>
+    <form method="POST" action="/contact">
+      <label for="name">Name</label>
+      <input id="name" name="name" type="text" autocomplete="name" maxlength="100" required>
+
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" autocomplete="email" maxlength="254" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" maxlength="5000" required></textarea>
+
+
+
+      <button type="submit">Send message</button>
+    </form>
+  </main>
+</body>
+</html>

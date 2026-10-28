@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1020">
+  <title>User details</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="min-h-screen bg-slate-950 text-slate-100 antialiased">
+  <main class="relative isolate flex min-h-screen items-center justify-center overflow-hidden px-5 py-12 sm:px-8">
+    <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+      <div class="absolute -left-32 -top-32 h-96 w-96 rounded-full bg-violet-600/30 blur-3xl"></div>
+      <div class="absolute -bottom-40 -right-24 h-[30rem] w-[30rem] rounded-full bg-cyan-500/20 blur-3xl"></div>
+    </div>
+
+    <section class="w-full max-w-lg rounded-3xl border border-white/10 bg-slate-900/80 p-6 shadow-2xl shadow-black/40 backdrop-blur-xl sm:p-10">
+      <p class="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-cyan-300">Profile</p>
+      <h1 class="text-3xl font-bold tracking-tight text-white"><%= editMode ? 'Edit user' : 'User details' %></h1>
+      <p class="mb-8 mt-3 leading-6 text-slate-400"><%= editMode ? 'Update the user details below.' : 'Enter a name, email address, and image URL.' %></p>
+
+      <% if (error) { %>
+        <p role="alert" class="mb-6 rounded-xl border border-rose-400/30 bg-rose-400/10 px-4 py-3 text-sm text-rose-200"><%= error %></p>
+      <% } %>
+
+      <form action="<%= formAction %>" method="post" class="space-y-5">
+        <div>
+          <label for="name" class="mb-2 block text-sm font-medium text-slate-200">User name</label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            maxlength="100"
+            autocomplete="name"
+            required
+            value="<%= values.name %>"
+            placeholder="Your name"
+            class="w-full rounded-xl border border-white/10 bg-slate-950/70 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300 focus:ring-4 focus:ring-cyan-300/10"
+          >
+        </div>
+
+        <div>
+          <label for="email" class="mb-2 block text-sm font-medium text-slate-200">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            maxlength="254"
+            autocomplete="email"
+            required
+            value="<%= values.email %>"
+            placeholder="you@example.com"
+            class="w-full rounded-xl border border-white/10 bg-slate-950/70 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300 focus:ring-4 focus:ring-cyan-300/10"
+          >
+        </div>
+
+        <div>
+          <label for="imageUrl" class="mb-2 block text-sm font-medium text-slate-200">Image URL</label>
+          <input
+            id="imageUrl"
+            name="imageUrl"
+            type="url"
+            maxlength="2048"
+            required
+            value="<%= values.imageUrl %>"
+            placeholder="https://example.com/image.jpg"
+            class="w-full rounded-xl border border-white/10 bg-slate-950/70 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300 focus:ring-4 focus:ring-cyan-300/10"
+          >
+        </div>
+
+        <button type="submit" class="w-full rounded-xl bg-cyan-300 px-5 py-3.5 font-semibold text-slate-950 shadow-lg shadow-cyan-950/30 transition hover:bg-cyan-200 focus:outline-none focus:ring-4 focus:ring-cyan-300/30">
+          <%= editMode ? 'Save changes' : 'Submit' %>
+        </button>
+      </form>
+
+      <% if (user) { %>
+        <section aria-live="polite" class="mt-8 border-t border-white/10 pt-8">
+          <p class="mb-4 text-sm font-semibold text-emerald-300">Details submitted</p>
+          <img src="<%= user.imageUrl %>" alt="Image for <%= user.name %>" class="mb-5 max-h-64 w-full rounded-2xl border border-white/10 object-cover">
+          <dl class="space-y-3 text-sm">
+            <div>
+              <dt class="text-slate-500">User name</dt>
+              <dd class="mt-1 break-words text-slate-100"><%= user.name %></dd>
+            </div>
+            <div>
+              <dt class="text-slate-500">Email</dt>
+              <dd class="mt-1 break-words text-slate-100"><%= user.email %></dd>
+            </div>
+            <div>
+              <dt class="text-slate-500">Image URL</dt>
+              <dd class="mt-1 break-all text-slate-100"><%= user.imageUrl %></dd>
+            </div>
+          </dl>
+        </section>
+      <% } %>
+    </section>
+  </main>
+  <script src="/javascript/script.js" defer></script>
+</body>
+</html>

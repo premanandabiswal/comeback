@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#10141f">
+    <meta name="description" content="A small, calming showcase of a world in motion.">
+    <title><%= title %> | Orbit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <main class="page-shell">
+        <header class="topbar">
+            <a class="brand" href="/" aria-label="Orbit home">
+                <span class="brand-mark" aria-hidden="true"><span></span></span>
+                <span>orbit<span class="brand-period">.</span></span>
+            </a>
+            <span class="topbar-note"><span class="live-dot"></span> A little motion for your day</span>
+        </header>
+
+        <section class="showcase" aria-labelledby="headline">
+            <div class="copy">
+                <p class="eyebrow"><span class="eyebrow-line"></span> THE ART OF SLOWING DOWN</p>
+                <h1 id="headline">A little motion,<br>a lot of <span>wonder.</span></h1>
+                <p class="description">Take a breath and watch the universe do its thing. One small world, turning at its own pace.</p>
+                <button class="motion-toggle" type="button" aria-pressed="false">
+                    <span class="button-icon" aria-hidden="true">Ⅱ</span>
+                    <span class="button-label">Pause rotation</span>
+                </button>
+                <p class="control-hint">A tiny reminder: you can always pause.</p>
+            </div>
+
+            <div class="visual" aria-label="A glowing ringed planet slowly rotating in space">
+                <div class="orbit orbit-one" aria-hidden="true"></div>
+                <div class="orbit orbit-two" aria-hidden="true"></div>
+                <span class="spark spark-one" aria-hidden="true">✦</span>
+                <span class="spark spark-two" aria-hidden="true">✧</span>
+                <span class="spark spark-three" aria-hidden="true">·</span>
+                <img class="planet-art" src="/images/orbit-art.svg" alt="Illustration of a glowing lavender planet with a golden ring">
+                <div class="visual-caption">
+                    <span class="caption-label">SOMEWHERE, OUT THERE</span>
+                    <span class="caption-title">A world of its own <span aria-hidden="true">↗</span></span>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <span>Made for a slower moment.</span>
+            <span class="footer-center"><span class="footer-star">✳</span> KEEP LOOKING UP</span>
+            <span>Take it easy <span aria-hidden="true">↗</span></span>
+        </footer>
+    </main>
+    <script src="/script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" role="img" aria-labelledby="title">
+  <title id="title">Contact message illustration</title>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#dbeafe"/>
+      <stop offset="1" stop-color="#eff6ff"/>
+    </linearGradient>
+    <linearGradient id="envelope" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3b82f6"/>
+      <stop offset="1" stop-color="#1d4ed8"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="320" rx="24" fill="url(#background)"/>
+  <circle cx="130" cy="75" r="30" fill="#bfdbfe"/>
+  <circle cx="680" cy="240" r="44" fill="#bfdbfe"/>
+  <path d="M225 104h350a24 24 0 0 1 24 24v116a24 24 0 0 1-24 24H225a24 24 0 0 1-24-24V128a24 24 0 0 1 24-24Z" fill="url(#envelope)"/>
+  <path d="m211 121 189 145 189-145" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="15"/>
+  <path d="M218 254 330 163m252 91L470 163" fill="none" stroke="#93c5fd" stroke-linecap="round" stroke-width="12"/>
+  <path d="M510 57h118a14 14 0 0 1 14 14v46H496V71a14 14 0 0 1 14-14Z" fill="#fff"/>
+  <path d="M515 82h76m-76 17h54" stroke="#60a5fa" stroke-linecap="round" stroke-width="8"/>
+  <path d="M159 174h34m-17-17v34" stroke="#60a5fa" stroke-linecap="round" stroke-width="8"/>
+</svg>
